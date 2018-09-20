@@ -45,6 +45,7 @@ if echo "$q1" | grep -iq "^s" ;then
 ##install jammapi joystick driver
 	printf "\033[1;31m Install Joystick \033[0m\n"
 	cd ~/JammaPi
+	unzip GPIO.zip
 	cd mk_arcade_joystick/
 	mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
 	cp -a * /usr/src/mk_arcade_joystick_rpi-0.1.5/
