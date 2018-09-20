@@ -76,11 +76,10 @@ if echo "$q1" | grep -iq "^s" ;then
 	cd 240p-overlays-v1/
 	sudo cp -r * /opt/retropie/emulators/retroarch/overlays/
 	cd ~/JammaPi
-	rm -R 240p-Theme/
+	sudo rm -R 240p-Theme/
 	git clone https://github.com/ehettervik/es-theme-pixel-metadata.git
 	sudo cp -r es-theme-pixel-metadata/ /etc/emulationstation/themes/
 	rm -R es-theme-pixel-metadata/
-fi
 
 ##Clean runcommand script
 	#rm /opt/retropie/configs/all/runcommand-onend.sh
