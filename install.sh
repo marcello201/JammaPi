@@ -30,16 +30,16 @@ if echo "$q1" | grep -iq "^s" ;then
 	if [ $? -eq 0 ] ; then
 	echo "Config.txt già modificato!"
 	else
-	sudo echo '#dtparam=i2c_vc=on' >> /boot/config.txt
-	sudo echo '#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2' >> /boot/config.txt
-	sudo echo '#dtoverlay=vga666-6' >> /boot/config.txt
-	sudo echo '#enable_dpi_lcd=1' >> /boot/config.txt
-	sudo echo '#display_default_lcd=1' >> /boot/config.txt
-	sudo echo '#dpi_output_format=6' >> /boot/config.txt
-	sudo echo '#dpi_group=2' >> /boot/config.txt
-	sudo echo '#dpi_mode=87' >> /boot/config.txt
-	sudo echo '#hdmi_timings=320 1 16 30 34 240 1 2 3 22 0 0 0 60 0 6400000 1' >> /boot/config.txt
-	sudo echo "Config.txt modificato!"
+	sudo sh -c "echo '#dtparam=i2c_vc=on' >> /boot/config.txt"
+	sudo sh -c "echo '#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2' >> /boot/config.txt"
+	sudo sh -c "echo '#dtoverlay=vga666-6' >> /boot/config.txt"
+	sudo sh -c "echo '#enable_dpi_lcd=1' >> /boot/config.txt"
+	sudo sh -c "echo '#display_default_lcd=1' >> /boot/config.txt"
+	sudo sh -c "echo '#dpi_output_format=6' >> /boot/config.txt"
+	sudo sh -c "echo '#dpi_group=2' >> /boot/config.txt"
+	sudo sh -c "echo '#dpi_mode=87' >> /boot/config.txt"
+	sudo sh -c "echo '#hdmi_timings=320 1 16 30 34 240 1 2 3 22 0 0 0 60 0 6400000 1' >> /boot/config.txt"
+	sudo sh -c "echo "Config.txt modificato!""
 	fi
 
 ##install jammapi joystick driver
@@ -61,9 +61,9 @@ if echo "$q1" | grep -iq "^s" ;then
 	if [ $? -eq 0 ] ; then
 	echo "Già modificato!"
 	else
-	sudo echo '#i2c-dev' >> /etc/modules
-	sudo echo '#mk_arcade_joystick_rpi' >> /etc/modules
-	sudo echo "Modulo attivato!"
+	sudo sh -c "echo '#i2c-dev' >> /etc/modules"
+	sudo sh -c "echo '#mk_arcade_joystick_rpi' >> /etc/modules"
+	sudo sh -c "echo "Modulo attivato!""
 	fi
   
   ##Add Emulationstation basic themes...
@@ -79,7 +79,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	sudo rm -R 240p-Theme/
 	git clone https://github.com/ehettervik/es-theme-pixel-metadata.git
 	sudo cp -r es-theme-pixel-metadata/ /etc/emulationstation/themes/
-	rm -R es-theme-pixel-metadata/
+	sudo rm -R es-theme-pixel-metadata/
 
 ##Clean runcommand script
 	#rm /opt/retropie/configs/all/runcommand-onend.sh
