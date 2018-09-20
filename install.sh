@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ########################################################
 ## Vincenzo Bini 20/09/2018
 ## Versione 0.5
@@ -9,29 +9,42 @@ if [ "$(whoami)" != "root" ]; then
 	exit 1
 fi
 
-echo -n "Vuoi installare il driver JammaPi/ScartPi? "
+echo -n "Vuoi installare il driver JammaPi/ScartPi? s/n"
 read q1
 
-if echo "$q1" | grep -iq "^y" ;then
+if echo "$q1" | grep -iq "^s" ;then
 	echo -n "Do you want to install additional useful files? (not recommended)"
 	read q2
-  
-	cd ~
-##download JammaPi.zip
-	printf "\033[1;31m Installing JammaPi \033[0m\n"
-	wget https://www.jammapi.it/arcadeitalia/jammapi.zip
-	unzip -o jammapi.zip
-	rm jammapi.zip
 	
 ##install jammapi overlay
+	cd ~/JammaPi
 	printf "\033[1;31m Install JammaPi Overlay \033[0m\n"
 	rm /boot/overlays/vga666-6.dtbo
 	mv vga666-6.dtbo /boot/overlays/vga666-6.dtbo
 	rm /boot/dt-blob.bin
 	mv dt-blob.bin /boot/dt-blob.bin
 
+  ##Modify Config.txt to Default
+	printf "\033[1;31m Modify Config.txt to JammaPi Default \033[0m\n"
+	sudo grep 'dtparam=i2c_vc=on' /boot/config.txt > /dev/null 2>&1
+	if [ $? -eq 0 ] ; then
+	echo "Config.txt già modificato!"
+	else
+	echo '#dtparam=i2c_vc=on' >> /boot/config.txt
+	echo '#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2' >> /boot/config.txt
+	echo '#dtoverlay=vga666-6' >> /boot/config.txt
+	echo '#enable_dpi_lcd=1' >> /boot/config.txt
+	echo '#display_default_lcd=1' >> /boot/config.txt
+	echo '#dpi_output_format=6' >> /boot/config.txt
+	echo '#dpi_group=2' >> /boot/config.txt
+	echo '#dpi_mode=87' >> /boot/config.txt
+	echo '#hdmi_timings=320 1 16 30 34 240 1 2 3 22 0 0 0 60 0 6400000 1' >> /boot/config.txt
+	echo "Config.txt modificato!"
+	fi
+
 ##install jammapi joystick driver
 	printf "\033[1;31m Install Joystick \033[0m\n"
+	cd ~/JammaPi
 	cd mk_arcade_joystick/
 	mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
 	cp -a * /usr/src/mk_arcade_joystick_rpi-0.1.5/
@@ -40,33 +53,32 @@ if echo "$q1" | grep -iq "^y" ;then
 	dkms build -m mk_arcade_joystick_rpi -v 0.1.5
 	dkms install -m mk_arcade_joystick_rpi -v 0.1.5
 	modprobe mk_arcade_joystick_rpi i2c0=0x20,0x21
-	mv /etc/modules /etc/modules.bak
-	mv modules /etc/
 	rm /etc/modprobe.d/mk_arcade_joystick.conf
 	echo "options mk_arcade_joystick_rpi i2c0=0x20,0x21" >> mk_arcade_joystick.conf
 	mv mk_arcade_joystick.conf /etc/modprobe.d/
-  
-  ##Modify Config.txt to Default
-	printf "\033[1;31m Modify Config.txt to JammaPi Default \033[0m\n"
-	cd ~
-	mv /boot/config.txt /boot/config.txt.bak
-	mv config.txt /boot/config.txt
+	sudo grep 'i2c-dev' /etc/modules > /dev/null 2>&1
+	if [ $? -eq 0 ] ; then
+	echo "Già modificato!"
+	else
+	echo '#i2c-dev' >> /etc/modules
+	echo '#mk_arcade_joystick_rpi' >> /etc/modules
+	echo "Modulo attivato!"
+	fi
   
   ##Add Emulationstation basic themes...
-		printf "\033[1;31m Install Emulationstation basic themes \033[0m\n"
-		apt-get install -y git
-		cd ~
-		git clone https://github.com/PietDAmore/240p-Theme.git
-		cd 240p-Theme/
- 		cp -r "240p Bubblegum"/ /etc/emulationstation/themes/
-		cp -r "240p Honey"/ /etc/emulationstation/themes/
-		cd 240p-overlays-v1/
-		cp -r * /opt/retropie/emulators/retroarch/overlays/
-		cd ~
-		rm -R 240p-Theme/
-		git clone https://github.com/ehettervik/es-theme-pixel-metadata.git
-		cp -r es-theme-pixel-metadata/ /etc/emulationstation/themes/
-		rm -R es-theme-pixel-metadata/
+	printf "\033[1;31m Install Emulationstation basic themes \033[0m\n"
+	cd ~/JammaPi
+	git clone https://github.com/PietDAmore/240p-Theme.git
+	cd 240p-Theme/
+ 	cp -r "240p Bubblegum"/ /etc/emulationstation/themes/
+	cp -r "240p Honey"/ /etc/emulationstation/themes/
+	cd 240p-overlays-v1/
+	cp -r * /opt/retropie/emulators/retroarch/overlays/
+	cd ~
+	rm -R 240p-Theme/
+	git clone https://github.com/ehettervik/es-theme-pixel-metadata.git
+	cp -r es-theme-pixel-metadata/ /etc/emulationstation/themes/
+	rm -R es-theme-pixel-metadata/
 fi
 
 ##Clean runcommand script
