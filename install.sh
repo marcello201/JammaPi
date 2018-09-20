@@ -39,7 +39,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	sudo sh -c "echo '#dpi_group=2' >> /boot/config.txt"
 	sudo sh -c "echo '#dpi_mode=87' >> /boot/config.txt"
 	sudo sh -c "echo '#hdmi_timings=320 1 16 30 34 240 1 2 3 22 0 0 0 60 0 6400000 1' >> /boot/config.txt"
-	sudo sh -c "echo "Config.txt modificato!""
+	echo "Config.txt modificato!"
 	fi
 
 ##install jammapi joystick driver
@@ -63,7 +63,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	else
 	sudo sh -c "echo '#i2c-dev' >> /etc/modules"
 	sudo sh -c "echo '#mk_arcade_joystick_rpi' >> /etc/modules"
-	sudo sh -c "echo "Modulo attivato!""
+	echo "Modulo attivato!"
 	fi
   
   ##Add Emulationstation basic themes...
