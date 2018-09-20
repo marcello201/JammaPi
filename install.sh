@@ -74,7 +74,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	cp -r "240p Honey"/ /etc/emulationstation/themes/
 	cd 240p-overlays-v1/
 	cp -r * /opt/retropie/emulators/retroarch/overlays/
-	cd ~
+	cd ~/JammaPi
 	rm -R 240p-Theme/
 	git clone https://github.com/ehettervik/es-theme-pixel-metadata.git
 	cp -r es-theme-pixel-metadata/ /etc/emulationstation/themes/
