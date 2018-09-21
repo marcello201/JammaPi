@@ -65,6 +65,12 @@ if echo "$q1" | grep -iq "^s" ;then
 	echo "Modulo impostato!"
 	fi
 	sleep 2
+	
+##install jammapi joystick driver
+	printf "\033[1;31m Installo menu x RetroPie \033[0m\n"
+	cd ~/JammaPi/
+	sudo cp -r ~/JammaPi/RetroPie/retropiemenu/JammaPi ~/RetroPie/retropiemenu/JammaPi
+	sleep 2
   
   ##Add Emulationstation basic themes...
 	printf "\033[1;31m Installo temi Emulationstation \033[0m\n"
@@ -93,6 +99,7 @@ if echo "$q1" | grep -iq "^s" ;then
 		make
 		make install
 		chmod a+x  /usr/local/bin/fbv
+		sleep 2
 
 ##install retropie resolution switch
 		printf "\033[1;31m installo script risoluzioni 15khz... \033[0m\n"
@@ -105,6 +112,7 @@ if echo "$q1" | grep -iq "^s" ;then
 		chown -R pi ~/JammaPi/pixel_script/center_screen_script
 		chgrp -R pi ~/JammaPi/pixel_script/center_screen_script
 		chmod +x ~/JammaPi/pixel_script/center_screen_script/*.sh
+		sleep 2
     #echo "Now use the center screen scripts for finetuning your screen."
 	fi
   
