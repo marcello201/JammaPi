@@ -23,6 +23,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	sudo mv vga666-6.dtbo /boot/overlays/vga666-6.dtbo
 	sudo rm /boot/dt-blob.bin
 	sudo mv dt-blob.bin /boot/dt-blob.bin
+	sleep 2
 
   ##Modify Config.txt to Default
 	printf "\033[1;31m Modify Config.txt to JammaPi Default \033[0m\n"
@@ -44,9 +45,7 @@ if echo "$q1" | grep -iq "^s" ;then
 
 ##install jammapi joystick driver
 	printf "\033[1;31m Install Joystick \033[0m\n"
-	cd ~/JammaPi
-	unzip GPIO.zip
-	cd mk_arcade_joystick/
+	cd ~/JammaPi/mk_arcade_joystick/
 	sudo mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
 	sudo cp -a * /usr/src/mk_arcade_joystick_rpi-0.1.5/
 	cd ~/JammaPi
@@ -63,7 +62,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	else
 	sudo sh -c "echo '#i2c-dev' >> /etc/modules"
 	sudo sh -c "echo '#mk_arcade_joystick_rpi' >> /etc/modules"
-	echo "Modulo attivato!"
+	echo "Modulo impostato!"
 	fi
   
   ##Add Emulationstation basic themes...
