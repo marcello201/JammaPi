@@ -12,6 +12,10 @@
 echo -n "Vuoi installare il driver JammaPi/ScartPi? s/n "
 read q1
 
+cd ~
+sudo apt-get install -y git
+git clone https://github.com/vince87/JammaPi.git
+
 if echo "$q1" | grep -iq "^s" ;then
 	echo -n "Vuoi installare lo script per le risoluzioni? (sconsigliato) s/n "
 	read q2
