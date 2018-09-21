@@ -81,14 +81,11 @@ if echo "$q1" | grep -iq "^s" ;then
 	sleep 2
 
 ##Clean runcommand script
-	#rm /opt/retropie/configs/all/runcommand-onend.sh
-	#rm /opt/retropie/configs/all/runcommand-onstart.sh
+	rm /opt/retropie/configs/all/runcommand-onend.sh
+	rm /opt/retropie/configs/all/runcommand-onstart.sh
 
 	if echo "$q2" | grep -iq "^y" ;then
-		cd ~
-		wget https://www.jammapi.it/arcadeitalia/script_pixel.zip
-		unzip -o script_pixel.zip
-		rm script_pixel.zip
+		cd ~/JammaPi/pixel_script
 ##install framebuffer viewer for center screen script
 		printf "\033[1;31m installing framebuffer viewer fbv \033[0m\n"
 		cd fbv-master
@@ -96,20 +93,18 @@ if echo "$q1" | grep -iq "^s" ;then
 		make
 		make install
 		chmod a+x  /usr/local/bin/fbv
-		cd ..
-		rm -R fbv-master
 
 ##install retropie resolution switch
 		printf "\033[1;31m installing retropie 15khz... \033[0m\n"
-		mv runcommand-onend.sh /opt/retropie/configs/all
-		mv runcommand-onstart.sh /opt/retropie/configs/all
+		cd ~/JammaPi/pixel_script
+		cp runcommand-onend.sh /opt/retropie/configs/all/runcommand-onend.sh
+		cp runcommand-onstart.sh /opt/retropie/configs/all/runcommand-onstart.sh
 		chown -R pi /opt/retropie/configs/all/
 		chgrp -R pi /opt/retropie/configs/all/
 		chmod +x /opt/retropie/configs/all/*.sh
-		mv center_screen_script/ /home/pi/center_screen_script/
-		chown -R pi /home/pi/center_screen_script
-		chgrp -R pi /home/pi/center_screen_script
-		chmod +x /home/pi/center_screen_script/*.sh
+		chown -R pi ~/JammaPi/pixel_script/center_screen_script
+		chgrp -R pi ~/JammaPi/pixel_script/center_screen_script
+		chmod +x ~/JammaPi/pixel_script/center_screen_script/*.sh
     #echo "Now use the center screen scripts for finetuning your screen."
 	fi
   
