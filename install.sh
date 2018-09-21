@@ -9,16 +9,16 @@
 #	exit 1
 #fi
 
-echo -n "Vuoi installare il driver JammaPi/ScartPi? s/n"
+echo -n "Vuoi installare il driver JammaPi/ScartPi? s/n "
 read q1
 
 if echo "$q1" | grep -iq "^s" ;then
-	echo -n "Do you want to install additional useful files? (not recommended)"
+	echo -n "Vuoi installare lo script per le risoluzioni? (sconsigliato) s/n "
 	read q2
 	
 ##install jammapi overlay
 	cd ~/JammaPi
-	printf "\033[1;31m Install JammaPi Overlay \033[0m\n"
+	printf "\033[1;31m Installo overlay JammaPi \033[0m\n"
 	sudo rm /boot/overlays/vga666-6.dtbo
 	sudo cp vga666-6.dtbo /boot/overlays/vga666-6.dtbo
 	sudo rm /boot/dt-blob.bin
@@ -26,7 +26,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	sleep 2
 
   ##Modify Config.txt to Default
-	printf "\033[1;31m Modify Config.txt to JammaPi Default \033[0m\n"
+	printf "\033[1;31m Modifico il config.txt per la JammaPi \033[0m\n"
 	sudo grep 'dtparam=i2c_vc=on' /boot/config.txt > /dev/null 2>&1
 	if [ $? -eq 0 ] ; then
 	echo "Config.txt già modificato!"
@@ -45,7 +45,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	sleep 2
 
 ##install jammapi joystick driver
-	printf "\033[1;31m Install Joystick \033[0m\n"
+	printf "\033[1;31m Installo driver Joystick \033[0m\n"
 	cd ~/JammaPi/mk_arcade_joystick/
 	sudo mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
 	sudo cp -a * /usr/src/mk_arcade_joystick_rpi-0.1.5/
@@ -67,7 +67,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	sleep 2
   
   ##Add Emulationstation basic themes...
-	printf "\033[1;31m Install Emulationstation basic themes \033[0m\n"
+	printf "\033[1;31m Installo temi Emulationstation \033[0m\n"
 	cd ~/JammaPi
 	git clone https://github.com/PietDAmore/240p-Theme.git
 	cd 240p-Theme/
@@ -87,7 +87,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	if echo "$q2" | grep -iq "^y" ;then
 		cd ~/JammaPi/pixel_script
 ##install framebuffer viewer for center screen script
-		printf "\033[1;31m installing framebuffer viewer fbv \033[0m\n"
+		printf "\033[1;31m installo framebuffer viewer fbv \033[0m\n"
 		cd fbv-master
 		sh ./configure
 		make
@@ -95,7 +95,7 @@ if echo "$q1" | grep -iq "^s" ;then
 		chmod a+x  /usr/local/bin/fbv
 
 ##install retropie resolution switch
-		printf "\033[1;31m installing retropie 15khz... \033[0m\n"
+		printf "\033[1;31m installo script risoluzioni 15khz... \033[0m\n"
 		cd ~/JammaPi/pixel_script
 		cp runcommand-onend.sh /opt/retropie/configs/all/runcommand-onend.sh
 		cp runcommand-onstart.sh /opt/retropie/configs/all/runcommand-onstart.sh
