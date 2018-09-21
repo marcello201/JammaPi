@@ -2,7 +2,7 @@
 
 Script per installazione semplificata JammaPi, da usare con cautela!
 
-Veccio script:<p>
+Vecchio script:<p>
 <code>wget https://www.jammapi.it/arcadeitalia/install.sh && chmod +x install.sh && sudo ./install.sh</code>
 
 Nuovo script:<p>
