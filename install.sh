@@ -20,9 +20,9 @@ if echo "$q1" | grep -iq "^s" ;then
 	cd ~/JammaPi
 	printf "\033[1;31m Install JammaPi Overlay \033[0m\n"
 	sudo rm /boot/overlays/vga666-6.dtbo
-	sudo mv vga666-6.dtbo /boot/overlays/vga666-6.dtbo
+	sudo cp vga666-6.dtbo /boot/overlays/vga666-6.dtbo
 	sudo rm /boot/dt-blob.bin
-	sudo mv dt-blob.bin /boot/dt-blob.bin
+	sudo cp dt-blob.bin /boot/dt-blob.bin
 	sleep 2
 
   ##Modify Config.txt to Default
@@ -42,6 +42,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	sudo sh -c "echo '#hdmi_timings=320 1 16 30 34 240 1 2 3 22 0 0 0 60 0 6400000 1' >> /boot/config.txt"
 	echo "Config.txt modificato!"
 	fi
+	sleep 2
 
 ##install jammapi joystick driver
 	printf "\033[1;31m Install Joystick \033[0m\n"
@@ -49,7 +50,6 @@ if echo "$q1" | grep -iq "^s" ;then
 	sudo mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
 	sudo cp -a * /usr/src/mk_arcade_joystick_rpi-0.1.5/
 	cd ~/JammaPi
-	rm -R mk_arcade_joystick/
 	sudo dkms build -m mk_arcade_joystick_rpi -v 0.1.5
 	sudo dkms install -m mk_arcade_joystick_rpi -v 0.1.5
 	sudo modprobe mk_arcade_joystick_rpi i2c0=0x20,0x21
@@ -64,6 +64,7 @@ if echo "$q1" | grep -iq "^s" ;then
 	sudo sh -c "echo '#mk_arcade_joystick_rpi' >> /etc/modules"
 	echo "Modulo impostato!"
 	fi
+	sleep 2
   
   ##Add Emulationstation basic themes...
 	printf "\033[1;31m Install Emulationstation basic themes \033[0m\n"
@@ -75,10 +76,9 @@ if echo "$q1" | grep -iq "^s" ;then
 	cd 240p-overlays-v1/
 	sudo cp -r * /opt/retropie/emulators/retroarch/overlays/
 	cd ~/JammaPi
-	sudo rm -R 240p-Theme/
 	git clone https://github.com/ehettervik/es-theme-pixel-metadata.git
 	sudo cp -r es-theme-pixel-metadata/ /etc/emulationstation/themes/
-	sudo rm -R es-theme-pixel-metadata/
+	sleep 2
 
 ##Clean runcommand script
 	#rm /opt/retropie/configs/all/runcommand-onend.sh
