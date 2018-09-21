@@ -1,0 +1,11 @@
+# hdmi_timings saved via the save command are stored here
+# This file is defined by the $SAVE_FILE variable
+# Entries are parsed to this file
+
+hdmi_timings=320 1 12 20 52 240 1 5 7 11 0 0 0 60 0 6400000 1
+hdmi_timings=320 1 12 20 52 240 1 5 7 11 0 0 0 60 0 6400000 1
+hdmi_timings=320 1 20 20 44 240 1 6 7 10 0 0 0 60 0 6400000 1
+hdmi_timings=320 1 21 20 43 240 1 5 7 11 0 0 0 60 0 6400000 1
+hdmi_timings=320 1 21 20 43 240 1 5 7 11 0 0 0 60 0 6400000 1
+hdmi_timings=450 1 50 30 90 270 1 6 1 25 0 0 0 50 0 9600000 1
+hdmi_timings=450 1 50 30 90 270 1 10 1 21 0 0 0 50 0 9600000 1

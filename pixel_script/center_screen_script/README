@@ -1,0 +1,144 @@
+*********************
+*Video timings script
+*Version - 3.0
+*********************
+
+This is the center screen script for adjusting your picture with pi2scart or pi2jamma.
+
+You have to adjust two resolution. One for 320 and one for 1600 resolution.
+
+First adjust the 320 resolution.
+
+Execute scripts set_video.sh to center your screen for 320 resolution:
+
+startup retropie, press F4 to exit to shell. Type then 
+cd retropie_pi2jamma_pi2scart
+cd center_screen_script
+./set_video.sh
+
+- Step 1 : Input timings
+
+Use option I, L or B to input timings. 
+
+- Step 2 : Type Q for viewing the test image. Type Q to exit test image viewer
+
+- Step 3 : Use Arrow to adjust screen. Check with Q test image (exit with Q)
+           and adjust again with arrow key until screen is centered.
+
+- Step 4 : Save timings with Option S for later use. 
+
+- Step 5 : Use Option 1 to carry this resolution to emulationstation 
+           runcommand-onstart.sh and runcommand-onend.sh script 
+           in /opt/retropie/configs/all script
+  
+- Step 6 : X for Exit
+
+I recommend to use ssh connection for adjusting the 1600 resolution since 
+the fonts are barely readible.
+
+Setting up wifi
+###############
+
+https://github.com/RetroPie/RetroPie-Setup/wiki/Wifi 
+
+or 
+
+Startup retropie 
+Press F4 to exit to shell
+cd Retropie-Setup
+sudo ./retropie_setup.sh
+-- this starts retropie setup script tool
+Choose C - Configuration / Tools
+Choose 837 wifi
+
+Configure your wifi as explained in above wifi link
+Notice IP adress!
+
+exit to shell
+
+Activate SSH
+############
+type on shell
+sudo raspi-config
+-- this open raspi config tool
+choose Option 5 interfacing
+choose Option P2 SSH and enable ssh
+
+You have now enabled ssh.
+
+Use putty or other tool to login in as 
+user pi and password raspberry and noticed ip
+
+Execute Scripte for centering 1600 resolution
+#############################################
+cd /home/pi 
+cd retropie_pi2jamma_pi2scart
+cd center_screen_script
+./set_video_1600.sh
+
+- Step 1 : Input timings
+
+Use option I, L to input timings.  
+
+- Step 2 : Type Q for viewing the test image. Type Q to exit test image viewer
+
+- Step 3 : Use Arrow to adjust screen. Check with Q test image (exit with Q)
+           and adjust again with arrow key until screen is centered.
+
+- Step 4 : Save timings with Option S for later use. 
+
+- Step 5 : Use Option 1 to carry this resolution to emulationstation 
+           runcommand-onstart.sh and runcommand-onend.sh script 
+           in /opt/retropie/configs/all script
+  
+- Step 6 : X for Exit
+
+Congratulations. You have now centered your screen for perfect retro gaming.
+Have fun
+
+
+
+
+Here all options for reference for the center script tool
+
+
+hdmi_timings=320 1 20 20 44 240 1 6 7 10 0 0 0 60 0 6400000 1
+
+-Use ARROW keys to position screen
+-Press Q to toggle test image
+-Press I to input timings
+-Press L to load timings from timings_load.txt
+-Press B to load timings from boot/config.txt
+-Press S to save timings to timings_save.txt
+-Press C to save timings to boot/config.txt
+-Press D to display current timings
+-Press F to calculate frequencies
+-Press SPACE or ENTER to reset timings
+-Press M to display this menu
+-Press X to exit to shell
+
+Program first reads and displays hdmi_timings from /boot/config.txt
+
+-Arrow keys | shift the screen left/right/up/down
+
+-Q | displays a 320x240 test PNG image to visually aid in centering the screen (defined by $TEST_IMAGE variable)
+
+-I | allows user to manually input and generate custom hdmi_timings
+
+-L | loads timings from 'timings_load.txt' (defined by $LOAD_FILE variable)
+
+-B | loads timings from 'boot/config.txt' (defined by $BOOT_CONFIG variable)
+
+-S | saves and parses timings to 'timings_save.txt' (defined by $SAVE_FILE variable) and also saves and replaces timings to 'timings_load.txt'
+
+-C | saves timings to 'boot/config.txt'
+
+-D | displays current timings
+
+-F | calculates and displays horizontal scan rate and vertical refresh rate frequencies
+
+-SPACE or ENTER | resets timings (defined by $SAFE_TIMINGS variable)
+
+-M | clears the screen and displays the main menu
+
+-X | aborts the program and exits to shell

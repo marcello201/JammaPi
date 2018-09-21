@@ -1,0 +1,24 @@
+dtparam=audio=on
+gpu_mem_256=128
+gpu_mem_512=256
+gpu_mem_1024=256
+gpu_mem=320
+overscan_scale=1
+dtparam=i2c_vc=on
+dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2
+dtoverlay=vga666-6
+enable_dpi_lcd=1
+display_default_lcd=1
+dpi_output_format=6
+dpi_group=2
+dpi_mode=87
+hdmi_timings=450 1 50 30 90 270 1 10 1 21 0 0 0 50 0 9600000 1
+framebuffer_width=360
+framebuffer_heightframebuffer_height=260
+pi2jamma=no
+# set to no to display vertical games on horizontal screen
+pi2scart_tate_mode=no
+# set to no to keep your own settings
+pi2scart_overwrite_rom_cfg=yes
+# uncomment or set to arcade for arcade crt or crt with geometry settings
+pi2scart_crt_profile=arcade
