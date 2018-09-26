@@ -73,7 +73,7 @@ git clone https://github.com/vince87/JammaPi.git
 ##install jammapi joystick driver
 	printf "\033[1;31m Installo menu x RetroPie \033[0m\n"
 	cd ~/JammaPi/
-	sudo cp -r ~/JammaPi/RetroPie/retropiemenu/JammaPi ~/RetroPie/retropiemenu/JammaPi
+	cp -r ~/JammaPi/RetroPie/retropiemenu/JammaPi ~/RetroPie/retropiemenu/JammaPi
 	sleep 2
   
   ##Add Emulationstation basic themes...
