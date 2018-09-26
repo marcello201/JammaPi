@@ -15,9 +15,8 @@
 cd ~
 sudo apt-get install -y git
 git clone https://github.com/vince87/JammaPi.git
-git pull
-
 cd ~/JammaPi
+git pull
 chmod +x install.sh
 
 #if echo "$q1" | grep -iq "^s" ;then
