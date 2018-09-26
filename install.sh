@@ -4,14 +4,6 @@
 ## Versione 0.5
 #########################################################
 
-#if [ "$(whoami)" != "root" ]; then
- #	echo "Sorry, you are not root."
-#	exit 1
-#fi
-
-#echo -n "Vuoi installare il driver JammaPi/ScartPi? s/n "
-#read q1
-
 cd ~
 sudo apt-get install -y git
 git clone https://github.com/vince87/JammaPi.git
@@ -19,10 +11,6 @@ cd ~/JammaPi
 git pull
 chmod +x install.sh
 
-#if echo "$q1" | grep -iq "^s" ;then
-#	echo -n "Vuoi installare lo script per le risoluzioni? (sconsigliato) s/n "
-#	read q2
-	
 ##install jammapi overlay
 	cd ~/JammaPi
 	printf "\033[1;31m Installo overlay JammaPi \033[0m\n"
@@ -93,13 +81,8 @@ chmod +x install.sh
 	sudo cp -r es-theme-pixel-metadata/ /etc/emulationstation/themes/
 	sleep 2
 
-##Clean runcommand script
-	rm /opt/retropie/configs/all/runcommand-onend.sh
-	rm /opt/retropie/configs/all/runcommand-onstart.sh
-
-#	if echo "$q2" | grep -iq "^y" ;then
 		cd ~/JammaPi/pixel_script
-##install framebuffer viewer for center screen script
+  ##install framebuffer viewer for center screen script
 		printf "\033[1;31m installo framebuffer viewer fbv \033[0m\n"
 		cd fbv-master
 		sh ./configure
@@ -108,18 +91,18 @@ chmod +x install.sh
 		sudo chmod a+x  /usr/local/bin/fbv
 		sleep 2
 
-##install retropie resolution switch
-#		printf "\033[1;31m installo script risoluzioni 15khz... \033[0m\n"
-#		cd ~/JammaPi/pixel_script
+  ##install retropie resolution switch
+		printf "\033[1;31m installo script risoluzioni 15khz... \033[0m\n"
+		cd ~/JammaPi/pixel_script
 #		cp runcommand-onend.sh /opt/retropie/configs/all/runcommand-onend.sh
 #		cp runcommand-onstart.sh /opt/retropie/configs/all/runcommand-onstart.sh
-#		chown -R pi /opt/retropie/configs/all/
-#		chgrp -R pi /opt/retropie/configs/all/
 #		chmod +x /opt/retropie/configs/all/*.sh
-#		chown -R pi ~/JammaPi/pixel_script/center_screen_script
-#		chgrp -R pi ~/JammaPi/pixel_script/center_screen_script
-#		chmod +x ~/JammaPi/pixel_script/center_screen_script/*.sh
-#		sleep 2
+		chown -R pi ~/JammaPi/pixel_script/center_screen_script
+		chgrp -R pi ~/JammaPi/pixel_script/center_screen_script
+		chmod +x ~/JammaPi/pixel_script/center_screen_script/*.sh
+		sleep 2
     #echo "Now use the center screen scripts for finetuning your screen."
+    
+    		printf "\033[0;32m !!!INSTALLAZIONE COMPLETATA!!! \033[0m\n"
   
 #reboot				
