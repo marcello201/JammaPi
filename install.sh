@@ -15,6 +15,10 @@
 cd ~
 sudo apt-get install -y git
 git clone https://github.com/vince87/JammaPi.git
+git pull
+
+cd ~/JammaPi
+chmod +x install.sh
 
 #if echo "$q1" | grep -iq "^s" ;then
 #	echo -n "Vuoi installare lo script per le risoluzioni? (sconsigliato) s/n "
