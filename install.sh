@@ -101,8 +101,8 @@ git clone https://github.com/vince87/JammaPi.git
 		cd fbv-master
 		sh ./configure
 		make
-		make install
-		chmod a+x  /usr/local/bin/fbv
+		sudo make install
+		sudo chmod a+x  /usr/local/bin/fbv
 		sleep 2
 
 ##install retropie resolution switch
