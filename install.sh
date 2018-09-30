@@ -79,6 +79,11 @@ chmod +x install.sh
 	cd ~/JammaPi
 	git clone https://github.com/ehettervik/es-theme-pixel-metadata.git
 	sudo cp -r es-theme-pixel-metadata/ /etc/emulationstation/themes/
+	cd ~/JammaPi
+	git clone https://github.com/anthonycaccese/es-theme-crt.git
+	sudo cp -r es-theme-crt/ /etc/emulationstation/themes/
+	
+	
 	sleep 2
 
 		cd ~/JammaPi/pixel_script
