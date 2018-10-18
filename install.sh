@@ -64,6 +64,7 @@ chmod +x install.sh
 	
 ##install jammapi joystick driver
 	printf "\033[1;31m Installo menu x RetroPie \033[0m\n"
+	rm -R ~/RetroPie/retropiemenu/JammaPi
 	cd ~/JammaPi/
 	cp -r ~/JammaPi/RetroPie/retropiemenu/JammaPi ~/RetroPie/retropiemenu/JammaPi
 	sleep 2
