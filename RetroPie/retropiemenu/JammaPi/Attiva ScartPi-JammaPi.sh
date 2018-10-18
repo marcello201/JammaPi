@@ -14,9 +14,9 @@ sudo perl -p -i -e 's/#dpi_group=2/dpi_group=2/g' /boot/config.txt
 sudo perl -p -i -e 's/#dpi_mode=87/dpi_mode=87/g' /boot/config.txt
 sudo perl -p -i -e 's/#hdmi_timings=/hdmi_timings=/g' /boot/config.txt
 
-echo "Modifiche effettuate! Riavvio in corso!"
+echo "Modifiche effettuate! Spegnimento in corso!"
 sleep 5
-sudo reboot
+sudo halt
 else
 echo "Il driver video è già attivo!"
 fi
