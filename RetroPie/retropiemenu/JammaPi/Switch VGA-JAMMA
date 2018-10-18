@@ -12,8 +12,6 @@ if [ $? -eq 0 ] ; then
 sudo perl -p -i -e 's/hdmi_timings=/#hdmi_timings=/g' /boot/config.txt
 fi
 
-echo "Modifiche effettuate! Spegnimento in corso!"
-
 else
 
 sudo grep 'dpi_mode=9' /boot/config.txt > /dev/null 2>&1
@@ -25,8 +23,8 @@ echo "Conversione a VGA 31Khz"
 sudo perl -p -i -e 's/dpi_mode=9/dpi_mode=87/g' /boot/config.txt
 sudo perl -p -i -e 's/#hdmi_timings=/hdmi_timings=/g' /boot/config.txt
 
-echo "Modifiche effettuate! Spegnimento in corso!"
 fi
 
+echo "Modifiche effettuate!"
+echo "Le impostazioni verranno attivate al prossimo riavvio!"
 sleep 5
-sudo halt
