@@ -18,7 +18,7 @@ sudo perl -p -i -e 's/#hdmi_timings=/hdmi_timings=/g' /boot/config.txt
 
 else
 
-echo "Il driver video è già attivo!"
+echo "Il driver video è attivo!"
 sleep 4
 echo "Disattivo il driver video!"
 
