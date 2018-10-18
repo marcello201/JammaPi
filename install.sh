@@ -28,6 +28,7 @@ chmod +x install.sh
 	else
 	sudo sh -c "echo '#dtparam=i2c_vc=on' >> /boot/config.txt"
 	sudo sh -c "echo '#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2' >> /boot/config.txt"
+	sudo sh -c "echo '#disable_audio_dither=1' >> /boot/config.txt"
 	sudo sh -c "echo '#dtoverlay=vga666-6' >> /boot/config.txt"
 	sudo sh -c "echo '#enable_dpi_lcd=1' >> /boot/config.txt"
 	sudo sh -c "echo '#display_default_lcd=1' >> /boot/config.txt"
