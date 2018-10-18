@@ -10,7 +10,7 @@ sudo perl -p -i -e 's/#mk_arcade_joystick_rpi/mk_arcade_joystick_rpi/g' /etc/mod
 
 sudo perl -p -i -e 's/#dtparam=i2c_vc=on/dtparam=i2c_vc=on/g' /boot/config.txt
 
-sudo modprobe mk_arcade_joystick_rpi i2c1=0x20,0x21
+sudo modprobe mk_arcade_joystick_rpi i2c0=0x20,0x21
 
 echo "Modifiche effettuate!"
 sleep 5
