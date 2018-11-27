@@ -21,5 +21,6 @@ sudo dkms build -m mk_arcade_joystick_rpi -v 0.1.5
 sudo dkms install -m mk_arcade_joystick_rpi -v 0.1.5
 printf "\033[1;31m RICOMPILATO IL DRIVER JAMMAPI PER IL NUOVO KERNEL! \033[0m\n"
 sudo rm /kernel-up
+sleep 5
 fi
 
