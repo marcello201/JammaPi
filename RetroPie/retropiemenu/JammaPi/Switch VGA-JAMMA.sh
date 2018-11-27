@@ -9,6 +9,7 @@ sudo perl -p -i -e 's/dpi_mode=87/dpi_mode=9/g' /boot/config.txt
 
 sudo grep '#hdmi_timings=' /boot/config.txt > /dev/null 2>&1
 if [ $? -eq 0 ] ; then
+sudo perl -p -i -e 's/dpi_mode=87/dpi_mode=9/g' /boot/config.txt
 sudo perl -p -i -e 's/hdmi_timings=/#hdmi_timings=/g' /boot/config.txt
 fi
 
