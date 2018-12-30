@@ -126,5 +126,7 @@ chmod +x install.sh
     #echo "Now use the center screen scripts for finetuning your screen."
     
     		printf "\033[0;32m !!!INSTALLAZIONE COMPLETATA!!! \033[0m\n"
-  
-#reboot				
+		printf "\033[0;32m     !!!RIAVVIO IN CORSO!!! \033[0m\n"
+  		sleep 5
+		
+sudo reboot				
