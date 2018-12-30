@@ -41,9 +41,10 @@ chmod +x install.sh
 	fi
 	sleep 2
 
-##install jammapi joystick driver
+##install jammapi led driver
 	printf "\033[1;31m Installo led \033[0m\n"
 	sudo grep '/home/pi/JammaPi/led.sh' /home/pi/.bashrc > /dev/null 2>&1
+	chmod +x /home/pi/JammaPi/led.sh
 	if [ $? -eq 0 ] ; then
 	echo "Già modificato!"
 	else
