@@ -46,11 +46,11 @@ chmod +x install.sh
 	if [ $? -eq 0 ] ; then
 	echo "Già modificato!"
 	else
-	cat <<EOF > /etc/rc.local
+	sudo sh -c "cat <<EOF > /etc/rc.local
 	echo "26" > /sys/class/gpio/export
 	echo "out" > /sys/class/gpio/gpio26/direction
 	echo "0" > /sys/class/gpio/gpio26/value
-	EOF
+	EOF"
 	echo "Modulo impostato!"
 	fi
 	sleep 2
