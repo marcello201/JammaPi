@@ -47,6 +47,7 @@ chmod +x install.sh
 	echo "Già modificato!"
 	else
 	sudo sh -c "echo '/home/pi/JammaPi/led.sh' >> /home/pi/.bashrc"
+	sudo sh -c "echo 'dtoverlay=pi3-act-led,gpio=27' >> /boot/config.txt"
 	echo "Modulo impostato!"
 	fi
 	sleep 2
