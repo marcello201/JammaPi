@@ -41,6 +41,22 @@ chmod +x install.sh
 	sleep 2
 
 ##install jammapi joystick driver
+	printf "\033[1;31m Installo led \033[0m\n"
+	sudo grep '/sys/class/gpio/export' /etc/rc.local > /dev/null 2>&1
+	if [ $? -eq 0 ] ; then
+	echo "Già modificato!"
+	else
+	cat <<EOF > /etc/rc.local
+	echo "26" > /sys/class/gpio/export
+	echo "out" > /sys/class/gpio/gpio26/direction
+	echo "0" > /sys/class/gpio/gpio26/value
+	EOF
+	echo "Modulo impostato!"
+	fi
+	sleep 2
+
+
+##install jammapi joystick driver
 	printf "\033[1;31m Installo driver Joystick \033[0m\n"
 	cd ~/JammaPi/mk_arcade_joystick/
 	sudo mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
