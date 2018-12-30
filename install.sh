@@ -8,6 +8,7 @@ cd ~
 sudo apt-get install -y git
 git clone https://github.com/vince87/JammaPi.git
 cd ~/JammaPi
+git reset --hard origin/master
 git pull
 chmod +x install.sh
 
