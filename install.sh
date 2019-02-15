@@ -5,7 +5,7 @@
 #########################################################
 
 cd ~
-sudo apt-get install -y git
+sudo apt-get install -y git libjpeg-dev
 git clone https://github.com/vince87/JammaPi.git
 cd ~/JammaPi
 git reset --hard origin/master
