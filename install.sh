@@ -27,6 +27,7 @@ chmod +x install.sh
 	if [ $? -eq 0 ] ; then
 	echo "Config.txt già modificato!"
 	else
+	sudo perl -p -i -e 's/#hdmi_force_hotplug/hdmi_force_hotplug/g' /boot/config.txt
 	sudo sh -c "echo '#dtparam=i2c_vc=on' >> /boot/config.txt"
 	sudo sh -c "echo '#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2' >> /boot/config.txt"
 	sudo sh -c "echo '#disable_audio_dither=1' >> /boot/config.txt"
