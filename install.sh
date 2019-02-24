@@ -47,11 +47,11 @@ chmod +x install.sh
 	sudo grep '/home/pi/JammaPi/led.sh' /home/pi/.bashrc > /dev/null 2>&1
 	chmod +x /home/pi/JammaPi/led.sh
 	if [ $? -eq 0 ] ; then
-	echo "Già modificato!"
-	else
 	sudo sh -c "echo '/home/pi/JammaPi/led.sh' >> /home/pi/.bashrc"
 	sudo sh -c "echo 'dtoverlay=pi3-act-led,gpio=27' >> /boot/config.txt"
 	echo "Modulo impostato!"
+	else
+	echo "Già modificato!"
 	fi
 	sleep 2
 
