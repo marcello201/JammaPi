@@ -5,7 +5,7 @@
 #########################################################
 
 cd ~
-sudo apt-get upgrade
+sudo apt-get update
 sudo apt-get install -y git libjpeg-dev
 git clone https://github.com/vince87/JammaPi.git
 cd ~/JammaPi
@@ -58,25 +58,40 @@ chmod +x install.sh
 
 
 ##install jammapi joystick driver
+	#printf "\033[1;31m Installo driver Joystick \033[0m\n"
+	#cd ~/JammaPi/mk_arcade_joystick/
+	#sudo mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
+	#sudo cp -a * /usr/src/mk_arcade_joystick_rpi-0.1.5/
+	#cd ~/JammaPi
+	#sudo dkms build -m mk_arcade_joystick_rpi -v 0.1.5
+	#sudo dkms install -m mk_arcade_joystick_rpi -v 0.1.5
+	#sudo modprobe mk_arcade_joystick_rpi i2c0=0x20,0x21
+	#sudo rm /etc/modprobe.d/mk_arcade_joystick.conf
+	#echo "options mk_arcade_joystick_rpi i2c0=0x20,0x21" >> mk_arcade_joystick.conf
+	#sudo mv mk_arcade_joystick.conf /etc/modprobe.d/
+	#sudo grep 'i2c-dev' /etc/modules > /dev/null 2>&1
+	#if [ $? -eq 0 ] ; then
+	#echo "Già modificato!"
+	#else
+	#sudo sh -c "echo '#i2c-dev' >> /etc/modules"
+	#sudo sh -c "echo '#mk_arcade_joystick_rpi' >> /etc/modules"
+	#echo "Modulo impostato!"
+	#fi
+	
 	printf "\033[1;31m Installo driver Joystick \033[0m\n"
-	cd ~/JammaPi/mk_arcade_joystick/
-	sudo mkdir /usr/src/mk_arcade_joystick_rpi-0.1.5/
-	sudo cp -a * /usr/src/mk_arcade_joystick_rpi-0.1.5/
-	cd ~/JammaPi
-	sudo dkms build -m mk_arcade_joystick_rpi -v 0.1.5
-	sudo dkms install -m mk_arcade_joystick_rpi -v 0.1.5
-	sudo modprobe mk_arcade_joystick_rpi i2c0=0x20,0x21
-	sudo rm /etc/modprobe.d/mk_arcade_joystick.conf
-	echo "options mk_arcade_joystick_rpi i2c0=0x20,0x21" >> mk_arcade_joystick.conf
-	sudo mv mk_arcade_joystick.conf /etc/modprobe.d/
+	cd ~/JammaPi/joypi/
+	make
+	sudo make install
+	sudo modprobe joypi
 	sudo grep 'i2c-dev' /etc/modules > /dev/null 2>&1
 	if [ $? -eq 0 ] ; then
 	echo "Già modificato!"
 	else
 	sudo sh -c "echo '#i2c-dev' >> /etc/modules"
-	sudo sh -c "echo '#mk_arcade_joystick_rpi' >> /etc/modules"
+	sudo sh -c "echo '#joypi' >> /etc/modules"
 	echo "Modulo impostato!"
 	fi
+	
 	sleep 2
 	
 ##install jammapi menu script
