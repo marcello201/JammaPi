@@ -82,13 +82,12 @@ chmod +x install.sh
 	cd ~/JammaPi/joypi/
 	make
 	sudo make install
-	sudo modprobe joypi
+	sudo insmod joypi.ko
 	sudo grep 'i2c-dev' /etc/modules > /dev/null 2>&1
 	if [ $? -eq 0 ] ; then
 	echo "Già modificato!"
 	else
 	sudo sh -c "echo '#i2c-dev' >> /etc/modules"
-	sudo sh -c "echo '#joypi' >> /etc/modules"
 	echo "Modulo impostato!"
 	fi
 	
