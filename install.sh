@@ -85,6 +85,7 @@ chmod +x install.sh
 	sudo insmod joypi.ko
 	sudo grep 'i2c-dev' /etc/modules > /dev/null 2>&1
 	if [ $? -eq 0 ] ; then
+	sudo perl -p -i -e 's/mk_arcade_joystick_rpi/jpypi/g' /etc/modules
 	echo "Già modificato!"
 	else
 	sudo sh -c "echo '#i2c-dev' >> /etc/modules"
