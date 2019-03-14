@@ -88,6 +88,7 @@ chmod +x install.sh
 	echo "Già modificato!"
 	else
 	sudo sh -c "echo '#i2c-dev' >> /etc/modules"
+	sudo sed -i -e "s/^exit 0/sudo modprobe joypi \&\n&/g" /etc/rc.local
 	echo "Modulo impostato!"
 	fi
 	
