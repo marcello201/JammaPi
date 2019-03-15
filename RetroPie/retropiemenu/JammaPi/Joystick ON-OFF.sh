@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo grep '#dtparam=i2c_vc=on' /boot/config.txt > /dev/null 2>&1
+sudo grep '#modprobe' /etc/rc.local > /dev/null 2>&1
 if [ $? -eq 0 ] ; then
 
 echo "Il driver joystick JammaPi non è attivo!"
