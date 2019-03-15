@@ -12,8 +12,6 @@ sudo perl -p -i -e 's/#joypi/jpypi/g' /etc/modules
 
 sudo perl -p -i -e 's/#dtparam=i2c_vc=on/dtparam=i2c_vc=on/g' /boot/config.txt
 
-sudo modprobe joypi
-
 echo "Modifiche effettuate!"
 
 else
@@ -28,10 +26,9 @@ sudo perl -p -i -e 's/joypi/#joypi/g' /etc/modules
 
 sudo perl -p -i -e 's/dtparam=i2c_vc=on/#dtparam=i2c_vc=on/g' /boot/config.txt
 
-sudo modprobe -r joypi
-
 echo "Modifiche effettuate!"
 
 fi
+echo "Le impostazioni verranno attivate al prossimo riavvio!"
 
 sleep 5
