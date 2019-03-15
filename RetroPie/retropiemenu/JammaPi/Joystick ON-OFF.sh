@@ -9,8 +9,6 @@ echo "Attivo il driver joystick JammaPi!"
 sudo perl -p -i -e 's/#modprobe/modprobe/g' /etc/rc.local
 sudo modprobe joypi
 
-echo "Modifiche effettuate!"
-
 else
 
 echo "Il driver joystick JammaPi è attivo!"
@@ -20,9 +18,7 @@ echo "Disattivo il driver joystick JammaPi!"
 sudo perl -p -i -e 's/modprobe/#modprobe/g' /etc/rc.local
 sudo modprobe -rf joypi
 
-echo "Modifiche effettuate!"
-
 fi
-echo "Le impostazioni verranno attivate al prossimo riavvio!"
+echo "Modifiche effettuate!"
 
 sleep 5
