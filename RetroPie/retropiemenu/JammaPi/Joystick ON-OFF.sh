@@ -6,8 +6,8 @@ echo "Il driver joystick JammaPi non è attivo!"
 sleep 4
 echo "Attivo il driver joystick JammaPi!"
 
-sudo perl -p -i -e 's/#i2c-dev/i2c-dev/g' /etc/modules
-sudo perl -p -i -e 's/#dtparam=i2c_vc=on/dtparam=i2c_vc=on/g' /boot/config.txt
+sudo perl -p -i -e 's/#modprobe/modprobe/g' /etc/rc.local
+sudo modprobe joypi
 
 echo "Modifiche effettuate!"
 
@@ -17,8 +17,8 @@ echo "Il driver joystick JammaPi è attivo!"
 sleep 4
 echo "Disattivo il driver joystick JammaPi!"
 
-sudo perl -p -i -e 's/i2c-dev/#i2c-dev/g' /etc/modules
-sudo perl -p -i -e 's/dtparam=i2c_vc=on/#dtparam=i2c_vc=on/g' /boot/config.txt
+sudo perl -p -i -e 's/modprobe/#modprobe/g' /etc/rc.local
+sudo modprobe -rf joypi
 
 echo "Modifiche effettuate!"
 
