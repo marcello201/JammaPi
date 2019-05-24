@@ -20,6 +20,7 @@ chmod +x install.sh
 	sudo cp vga666-6.dtbo /boot/overlays/vga666-6.dtbo
 	sudo rm /boot/dt-blob.bin
 	sudo cp dt-blob.bin /boot/dt-blob.bin
+	amixer cset numid=3 "1"
 	sleep 2
 
   ##Modify Config.txt to Default
