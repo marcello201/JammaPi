@@ -8,6 +8,7 @@ echo "Attivo il driver Video!"
 
 sudo perl -p -i -e 's/#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/g' /boot/config.txt
 sudo perl -p -i -e 's/#disable_audio_dither=1/disable_audio_dither=1/g' /boot/config.txt
+sudo perl -p -i -e 's/#audio_pwm_mode=2/audio_pwm_mode=2/g' /boot/config.txt
 sudo perl -p -i -e 's/#dtoverlay=vga666-6/dtoverlay=vga666-6/g' /boot/config.txt
 sudo perl -p -i -e 's/#enable_dpi_lcd=1/enable_dpi_lcd=1/g' /boot/config.txt
 sudo perl -p -i -e 's/#display_default_lcd=1/display_default_lcd=1/g' /boot/config.txt
@@ -26,6 +27,7 @@ echo "Disattivo il driver video!"
 
 sudo perl -p -i -e 's/dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/g' /boot/config.txt
 sudo perl -p -i -e 's/disable_audio_dither=1/#disable_audio_dither=1/g' /boot/config.txt
+sudo perl -p -i -e 's/audio_pwm_mode=2/#audio_pwm_mode=2/g' /boot/config.txt
 sudo perl -p -i -e 's/dtoverlay=vga666-6/#dtoverlay=vga666-6/g' /boot/config.txt
 sudo perl -p -i -e 's/enable_dpi_lcd=1/#enable_dpi_lcd=1/g' /boot/config.txt
 sudo perl -p -i -e 's/display_default_lcd=1/#display_default_lcd=1/g' /boot/config.txt
