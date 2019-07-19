@@ -31,16 +31,16 @@ chmod +x install.sh
 	else
 	sudo perl -p -i -e 's/#hdmi_force_hotplug/hdmi_force_hotplug/g' /boot/config.txt
 	sudo sh -c "echo 'dtparam=i2c_vc=on' >> /boot/config.txt"
-	sudo sh -c "echo '#audio_pwm_mode=2' >> /boot/config.txt"
-	sudo sh -c "echo '#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2' >> /boot/config.txt"
-	sudo sh -c "echo '#disable_audio_dither=1' >> /boot/config.txt"
-	sudo sh -c "echo '#dtoverlay=vga666-6' >> /boot/config.txt"
-	sudo sh -c "echo '#enable_dpi_lcd=1' >> /boot/config.txt"
-	sudo sh -c "echo '#display_default_lcd=1' >> /boot/config.txt"
-	sudo sh -c "echo '#dpi_output_format=6' >> /boot/config.txt"
-	sudo sh -c "echo '#dpi_group=2' >> /boot/config.txt"
-	sudo sh -c "echo '#dpi_mode=87' >> /boot/config.txt"
-	sudo sh -c "echo '#hdmi_timings=450 1 50 30 90 270 1 10 1 21 0 0 0 50 0 9600000 1' >> /boot/config.txt"
+	sudo sh -c "echo 'audio_pwm_mode=2' >> /boot/config.txt"
+	sudo sh -c "echo 'dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2' >> /boot/config.txt"
+	sudo sh -c "echo 'disable_audio_dither=1' >> /boot/config.txt"
+	sudo sh -c "echo 'dtoverlay=vga666-6' >> /boot/config.txt"
+	sudo sh -c "echo 'enable_dpi_lcd=1' >> /boot/config.txt"
+	sudo sh -c "echo 'display_default_lcd=1' >> /boot/config.txt"
+	sudo sh -c "echo 'dpi_output_format=6' >> /boot/config.txt"
+	sudo sh -c "echo 'dpi_group=2' >> /boot/config.txt"
+	sudo sh -c "echo 'dpi_mode=87' >> /boot/config.txt"
+	sudo sh -c "echo 'hdmi_timings=450 1 50 30 90 270 1 10 1 21 0 0 0 50 0 9600000 1' >> /boot/config.txt"
 	echo "Config.txt modificato!"
 	fi
 	sleep 2
@@ -70,7 +70,7 @@ chmod +x install.sh
 	echo "Già modificato!"
 	else
 	sudo sh -c "echo 'i2c-dev' >> /etc/modules"
-	sudo sed -i -e "s/^exit 0/#modprobe joypi \&\n&/g" /etc/rc.local
+	sudo sed -i -e "s/^exit 0/modprobe joypi \&\n&/g" /etc/rc.local
 	echo "Modulo impostato!"
 	fi
 	
