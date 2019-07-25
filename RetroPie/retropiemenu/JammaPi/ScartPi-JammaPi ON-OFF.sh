@@ -17,6 +17,7 @@ sudo perl -p -i -e 's/#dpi_group=2/dpi_group=2/g' /boot/config.txt
 sudo perl -p -i -e 's/#dpi_mode=87/dpi_mode=87/g' /boot/config.txt
 sudo perl -p -i -e 's/#dpi_mode=9/dpi_mode=9/g' /boot/config.txt
 sudo perl -p -i -e 's/#hdmi_timings=/hdmi_timings=/g' /boot/config.txt
+sudo perl -p -i -e 's/gpio=26=op,dh/gpio=26=op,dl/g' /boot/config.txt
 mv /opt/retropie/configs/all/runcommand-onend.sh.off /opt/retropie/configs/all/runcommand-onend.sh
 mv /opt/retropie/configs/all/runcommand-onstart.sh.off /opt/retropie/configs/all/runcommand-onstart.sh
 else
@@ -36,6 +37,7 @@ sudo perl -p -i -e 's/dpi_group=2/#dpi_group=2/g' /boot/config.txt
 sudo perl -p -i -e 's/dpi_mode=87/#dpi_mode=87/g' /boot/config.txt
 sudo perl -p -i -e 's/dpi_mode=9/#dpi_mode=9/g' /boot/config.txt
 sudo perl -p -i -e 's/hdmi_timings=/#hdmi_timings=/g' /boot/config.txt
+sudo perl -p -i -e 's/gpio=26=op,dl/gpio=26=op,dh/g' /boot/config.txt
 mv /opt/retropie/configs/all/runcommand-onend.sh /opt/retropie/configs/all/runcommand-onend.sh.off
 mv /opt/retropie/configs/all/runcommand-onstart.sh /opt/retropie/configs/all/runcommand-onstart.sh.off
 fi
