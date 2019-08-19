@@ -114,9 +114,9 @@ chmod +x install.sh
   ##install retropie resolution switch
 		printf "\033[1;31m installo script risoluzioni 15khz... \033[0m\n"
 		cd ~/JammaPi/pixel_script
-		cp runcommand-onend.sh.off /opt/retropie/configs/all/runcommand-onend.sh.off
-		cp runcommand-onstart.sh.off /opt/retropie/configs/all/runcommand-onstart.sh.off
-		chmod +x /opt/retropie/configs/all/*.sh.off
+		cp runcommand-onend.sh /opt/retropie/configs/all/runcommand-onend.sh
+		cp runcommand-onstart.sh /opt/retropie/configs/all/runcommand-onstart.sh
+		chmod +x /opt/retropie/configs/all/*.sh
 		chown -R pi ~/JammaPi/pixel_script/center_screen_script
 		chgrp -R pi ~/JammaPi/pixel_script/center_screen_script
 		chmod +x ~/JammaPi/pixel_script/center_screen_script/*.sh
