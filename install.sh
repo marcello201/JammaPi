@@ -80,7 +80,7 @@ chmod +x install.sh
 	if [ $? -eq 0 ] ; then
 	echo "Script già installato!"
 	else
-	sudo sed -i -e "s/^exit 0//home/pi/JammaPi/jammapi.sh \&\n&/g" /etc/rc.local
+	sudo sed -i -e "s/^exit 0/\/home\/pi\/JammaPi\/jammapi.sh \&\n&/g" /etc/rc.local
 	chmod +x /home/pi/JammaPi/jammapi.sh
 	echo "Script impostato!"
 	fi
