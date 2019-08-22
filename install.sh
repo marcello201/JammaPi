@@ -75,6 +75,18 @@ chmod +x install.sh
 	
 	sleep 2
 	
+##install jammapi switch script
+	sudo grep '/home/pi/JammaPi/jammapi.sh' /etc/rc.local > /dev/null 2>&1
+	if [ $? -eq 0 ] ; then
+	echo "Script già installato!"
+	else
+	sudo sed -i -e "s/^exit 0//home/pi/JammaPi/jammapi.sh \&\n&/g" /etc/rc.local
+	chmod +x /home/pi/JammaPi/jammapi.sh
+	echo "Script impostato!"
+	fi
+
+	
+	
 ##install jammapi menu script
 	printf "\033[1;31m Installo menu x RetroPie \033[0m\n"
 	rm -R ~/RetroPie/retropiemenu/JammaPi
