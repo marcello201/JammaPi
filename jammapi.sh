@@ -38,8 +38,10 @@
     sudo perl -p -i -e 's/#hdmi_timings=/hdmi_timings=/g' /boot/config.txt
     mv /opt/retropie/configs/all/runcommand-onend.sh.off /opt/retropie/configs/all/runcommand-onend.sh
     mv /opt/retropie/configs/all/runcommand-onstart.sh.off /opt/retropie/configs/all/runcommand-onstart.sh
-    echo "Modifiche effettuate!"
+    printf "\033[0;32m !!!SWITCH COMPLETATO!!! \033[0m\n"
+    printf "\033[0;32m     !!!RIAVVIO IN CORSO!!! \033[0m\n"
     sleep 5
+    sudo reboot
   fi
    
   if test -f "$VGA"; then
@@ -58,8 +60,10 @@
     sudo perl -p -i -e 's/#hdmi_timings=/hdmi_timings=/g' /boot/config.txt
     mv /opt/retropie/configs/all/runcommand-onend.sh /opt/retropie/configs/all/runcommand-onend.sh.off
     mv /opt/retropie/configs/all/runcommand-onstart.sh /opt/retropie/configs/all/runcommand-onstart.sh.off
-    echo "Modifiche effettuate!"
+    printf "\033[0;32m !!!SWITCH COMPLETATO!!! \033[0m\n"
+    printf "\033[0;32m     !!!RIAVVIO IN CORSO!!! \033[0m\n"
     sleep 5
+    sudo reboot
   fi
    
   if test -f "$HDMI"; then
@@ -76,12 +80,8 @@
     sudo perl -p -i -e 's/hdmi_timings=/#hdmi_timings=/g' /boot/config.txt
     mv /opt/retropie/configs/all/runcommand-onend.sh /opt/retropie/configs/all/runcommand-onend.sh.off
     mv /opt/retropie/configs/all/runcommand-onstart.sh /opt/retropie/configs/all/runcommand-onstart.sh.off
-    echo "Modifiche effettuate!"
+    printf "\033[0;32m !!!SWITCH COMPLETATO!!! \033[0m\n"
+    printf "\033[0;32m     !!!RIAVVIO IN CORSO!!! \033[0m\n"
     sleep 5
+    sudo reboot
   fi
-    
-    		printf "\033[0;32m !!!SWITCH COMPLETATO!!! \033[0m\n"
-		printf "\033[0;32m     !!!RIAVVIO IN CORSO!!! \033[0m\n"
-  		sleep 5
-		
-sudo reboot
