@@ -4,9 +4,9 @@
 ## Versione 0.1
 #########################################################
 
-  CRT=/boot/JAMMA
-  VGA=/boot/VGA
-  HDMI=/boot/HDMI
+  CRT=/boot/JAMMA.txt
+  VGA=/boot/VGA.txt
+  HDMI=/boot/HDMI.txt
    
   ##Check if JammaPi script is installed
   sudo grep 'dtparam=i2c_vc=on' /boot/config.txt > /dev/null 2>&1
