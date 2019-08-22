@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ~/JammaPi
-rm install.sh
+rm *.sh
 git reset --hard origin/master
 git pull
 chmod +x install.sh
