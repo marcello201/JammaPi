@@ -21,7 +21,7 @@
   
   ##Check if exist CRT
   printf "\033[1;31m Controllo se esiste il file CRT \033[0m\n"
-  if [ -f "$JAMMA" ]; then
+  if test -f "$CRT"; then
     echo "$FILE esite!"
     sudo perl -p -i -e 's/#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/g' /boot/config.txt
     sudo perl -p -i -e 's/#disable_audio_dither=1/disable_audio_dither=1/g' /boot/config.txt
@@ -47,7 +47,7 @@
      
   ##Check if exist VGA
   printf "\033[1;31m Controllo se esiste il file VGA \033[0m\n"
-  if [ -f "$VGA" ]; then
+  if test -f "$VGA"; then
     echo "$FILE esite!"
     sudo perl -p -i -e 's/#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/g' /boot/config.txt
     sudo perl -p -i -e 's/#disable_audio_dither=1/disable_audio_dither=1/g' /boot/config.txt
@@ -73,7 +73,7 @@
    
   ##Check if exist HDMI
   printf "\033[1;31m Controllo se esiste il file HDMI \033[0m\n"
-  if [ -f "$HDMI" ]; then
+  if test -f "$HDMI"; then
     echo "$FILE esite!"
     sudo perl -p -i -e 's/dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2/g' /boot/config.txt
     sudo perl -p -i -e 's/disable_audio_dither=1/#disable_audio_dither=1/g' /boot/config.txt
