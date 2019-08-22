@@ -6,7 +6,7 @@ Nuovo script:<p>
 <code>wget -O - https://raw.githubusercontent.com/vince87/JammaPi/master/install.sh | bash</code>
   
 
-Ho aggiunto un piccolo script automatizzato che legge se esiste un file nella partizione di boot (JAMMA.txt, VGA.txt, HDMI.txt) e in caso positivo, riavva e fa lo switch automatico dell'ingresso video.
+Ho aggiunto un piccolo script automatizzato che controlla l'esistenza di un file nella partizione di boot (JAMMA.txt, VGA.txt, HDMI.txt) e in caso positivo, riavva e fa lo switch automatico dell'ingresso video.
 Utile per chi non ha esperienza nel mondo linux e ha la necessità di cambiare ingressi video.
 
 Per problemi aprite un ticket
