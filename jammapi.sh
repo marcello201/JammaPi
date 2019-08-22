@@ -39,6 +39,7 @@
     mv /opt/retropie/configs/all/runcommand-onstart.sh.off /opt/retropie/configs/all/runcommand-onstart.sh
     printf "\033[0;32m !!!SWITCH COMPLETATO!!! \033[0m\n"
     printf "\033[0;32m     !!!RIAVVIO IN CORSO!!! \033[0m\n"
+    sudo rm /boot/JAMMA.txt
     sleep 5
     sudo reboot
   else
@@ -65,6 +66,7 @@
     mv /opt/retropie/configs/all/runcommand-onstart.sh /opt/retropie/configs/all/runcommand-onstart.sh.off
     printf "\033[0;32m !!!SWITCH COMPLETATO!!! \033[0m\n"
     printf "\033[0;32m     !!!RIAVVIO IN CORSO!!! \033[0m\n"
+    sudo rm /boot/VGA.txt
     sleep 5
     sudo reboot
   else
@@ -89,6 +91,7 @@
     mv /opt/retropie/configs/all/runcommand-onstart.sh /opt/retropie/configs/all/runcommand-onstart.sh.off
     printf "\033[0;32m !!!SWITCH COMPLETATO!!! \033[0m\n"
     printf "\033[0;32m     !!!RIAVVIO IN CORSO!!! \033[0m\n"
+    sudo rm /boot/HDMI.txt
     sleep 5
     sudo reboot
   else
