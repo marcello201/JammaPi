@@ -1,5 +1,7 @@
 # JammaPi
 
+sito di riferimento: https://www.jammapi.it/
+
 Script per installazione semplificata JammaPi, da usare con cautela!
 
 Nuovo script:<p>
