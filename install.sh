@@ -40,7 +40,7 @@ chmod +x install.sh
 	sudo sh -c "echo 'dpi_output_format=6' >> /boot/config.txt"
 	sudo sh -c "echo 'dpi_group=2' >> /boot/config.txt"
 	sudo sh -c "echo 'dpi_mode=87' >> /boot/config.txt"
-	sudo sh -c "echo 'hdmi_timings=450 1 50 30 90 270 1 10 1 21 0 0 0 50 0 9600000 1' >> /boot/config.txt"
+	sudo sh -c "echo 'hdmi_timings=480 1 14 45 56 300 1 10 5 5 0 0 0 60 0 9600000 1' >> /boot/config.txt"
 	echo "Config.txt modificato!"
 	fi
 	sleep 2
