@@ -1,5 +1,7 @@
 # JammaPi
 
+![alt text](https://www.jammapi.it/wp-content/uploads/2018/08/jammapi.jpg)
+
 sito di riferimento: https://www.jammapi.it/
 
 Script per installazione semplificata JammaPi, da usare con cautela!
